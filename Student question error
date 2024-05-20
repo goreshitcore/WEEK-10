@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <string.h>
+
+struct Student
+{
+    char name[50]; 
+    float lecture_attendance;
+    float lab_attendance;
+};
+
+int main(void)
+{
+    struct Student student;
+    
+    strcpy(student.name, "Jane Doe");
+    
+    student.lecture_attendance = 0.33f;
+    student.lab_attendance = 1.00f;
+
+
+    printf("Successful!!!\n");
+    return 0;
+}
