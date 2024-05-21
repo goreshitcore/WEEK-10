@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+// Structure declaration for Rectangle
+struct Rectangle {
+    double width;
+    double height;
+};
+
+// Function to compute the area of the rectangle
+double compute_area(struct Rectangle rect) {
+    return rect.width * rect.height;
+}
+
+// Function to compute the perimeter of the rectangle
+double compute_perimeter(struct Rectangle rect) {
+    return 2 * (rect.width + rect.height);
+}
+
+int main() {
+    struct Rectangle rect;
+
+    // Query the user for the width and height of the rectangle
+    printf("Rectangle Width:\n");
+    scanf("%lf", &rect.width);
+    printf("Rectangle height:\n");
+    scanf("%lf", &rect.height);
+
+    // Call compute_area() and compute_perimeter() functions
+    double area = compute_area(rect);
+    double perimeter = compute_perimeter(rect);
+
+    // Print the results
+    printf("Area: %.2f\n", area);
+    printf("Perimeter: %.2f\n", perimeter);
+
+    return 0;
+}
