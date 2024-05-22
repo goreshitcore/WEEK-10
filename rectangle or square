@@ -1,0 +1,53 @@
+#include <stdio.h>
+
+
+struct Rectangle {
+    
+    float width;
+    float height;
+};
+
+float compute_area(struct Rectangle rect) {
+    return rect.width * rect.height;
+}
+
+float compute_perimeter(struct Rectangle rect) {
+    return 2 * (rect.width + rect.height);
+}
+
+void detect_dimensions(struct Rectangle rect) {
+    if (rect.width == rect.height) {
+        printf("Dimensions: %f x %f (Square)", rect.width, rect.height);
+    }
+    else {
+        printf("Dimensions: %f x %f (Rectangle)\n", rect.width, rect.height);
+    }
+    
+}
+
+int main (void) {
+    struct Rectangle rect;
+    scanf("%f", &rect.width);
+    scanf("%f", &rect.height);
+    printf("Rectangle Width:\n");
+    printf("Rectangle height:\n");
+    
+    float area = compute_area(rect);
+    printf("Area:       %.6f\n", area);
+    
+    
+    if ( compute_perimeter(rect) < 0 ) {
+        printf("Perimeter can not be computed\n");
+    }
+    
+    else {
+        float perimeter = compute_perimeter(rect);
+        printf("Perimeter:  %.6f\n", perimeter);
+    
+    }
+
+    detect_dimensions(rect);
+
+}
+// function declaration
+
