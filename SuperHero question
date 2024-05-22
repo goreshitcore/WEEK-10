@@ -1,0 +1,76 @@
+#include <stdio.h>
+
+enum Super_Hero { AQUAMAN, BATMAN, CYBORG, SUPERMAN, THE_FLASH, WONDER_WOMAN, 
+    BLACK_WIDOW, CAPTAIN_AMERICA, HAWKEYE, IRON_MAN, SPIDERMAN, THE_HULK
+};
+
+void print_hero_name(enum Super_Hero hero);
+void print_marvel_or_dc(enum Super_Hero hero);
+
+
+void print_hero_name(enum Super_Hero hero) {
+        switch(hero) {
+        case AQUAMAN:    printf("Aquaman\n"); 
+        break;
+        case BATMAN:   printf("Batman\n"); 
+        break;
+        case CYBORG: printf("Cyborg\n");
+        break;
+        case SUPERMAN:  printf("Superman\n"); 
+        break;
+        case THE_FLASH:    printf("The Flash\n"); 
+        break;
+        case WONDER_WOMAN:  printf("Wonder Woman\n"); 
+        break;
+        case BLACK_WIDOW:    printf("Black Widow\n"); 
+        break;
+        case CAPTAIN_AMERICA:   printf("Captain America\n");
+        break;
+        case HAWKEYE:   printf("Hawkeye\n");
+        break;    
+        case IRON_MAN:   printf("Iron Man\n");
+        break;   
+        case SPIDERMAN:   printf("Spiderman\n");
+        break;
+        case THE_HULK:  printf("The Hulk\n");
+        break;        
+        default: printf("Invalid superhero!\n");
+        break;
+    }
+
+}
+
+void print_marvel_or_dc(enum Super_Hero hero) {
+    switch(hero) {
+        case AQUAMAN:
+        case BATMAN:
+        case CYBORG:
+        case SUPERMAN:
+        case THE_FLASH:
+        case WONDER_WOMAN:
+        printf("DC\n"); 
+        break;
+        case BLACK_WIDOW:
+        case CAPTAIN_AMERICA:
+        case HAWKEYE:
+        case IRON_MAN:
+        case SPIDERMAN:
+        case THE_HULK:
+        printf("Marvel\n"); break;
+        default: printf("Invalid Superhero\n"); break;
+    }
+    
+}
+
+int main (void)
+{
+    //keep this
+	for (int i = 0; i < 12; i++)
+	{
+		print_hero_name(i%12);
+		print_marvel_or_dc(i%12);
+		printf("\n");
+	}
+
+	return 0;
+}
