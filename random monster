@@ -1,0 +1,107 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+// Enum for Monster Types
+enum Monster_Type {
+    ZOMBIE,
+    WEREWOLF,
+    VAMPIRE,
+    MUMMY,
+    CHANGELING
+};
+
+// Struct for Monster
+struct Monster {
+    enum Monster_Type type;
+    int age;
+    int power;
+    float speed;
+    int stamina;
+};
+
+// Function declarations
+struct Monster create_monster(enum Monster_Type type);
+void print_monster(struct Monster monster);
+
+int main(void) {
+    
+    srand((unsigned int)time(0));
+
+    // Create and print monsters
+    struct Monster monster1 = create_monster(CHANGELING);
+    print_monster(monster1);
+
+    struct Monster monster2 = create_monster(MUMMY);
+    print_monster(monster2);
+
+    struct Monster monster3 = create_monster(WEREWOLF);
+    print_monster(monster3);
+
+    struct Monster monster4 = create_monster(VAMPIRE);
+    print_monster(monster4);
+
+    struct Monster monster5 = create_monster(ZOMBIE);
+    print_monster(monster5);
+
+    return 0;
+}
+
+// Function to create a monster with random attributes
+struct Monster create_monster(enum Monster_Type type) {
+    struct Monster monster;
+    monster.type = type;
+
+    switch(type) {
+        case ZOMBIE:
+            monster.age = rand() % 10 - 1; // Random age between -1 and 8
+            monster.power = rand() % 2 + 1; // Random power between 1 and 2
+            monster.speed = ((float)rand() / RAND_MAX) * 1.0; // Random speed between 0 and 1
+            monster.stamina = rand() % 201 + 100; // Random stamina between 100 and 300
+            break;
+        case WEREWOLF:
+            monster.age = rand() % 100 + 1; // Random age between 1 and 100
+            monster.power = rand() % 101 + 100; // Random power between 100 and 200
+            monster.speed = ((float)rand() / RAND_MAX) * 30.0; // Random speed between 0 and 30
+            monster.stamina = rand() % 4001 + 1000; // Random stamina between 1000 and 5000
+            break;
+        case VAMPIRE:
+            monster.age = rand() % 200 + 50; // Random age between 50 and 250
+            monster.power = rand() % 201 + 100; // Random power between 100 and 300
+            monster.speed = ((float)rand() / RAND_MAX) * 20.0; // Random speed between 0 and 20
+            monster.stamina = rand() % 4001 + 1000; // Random stamina between 1000 and 5000
+            break;
+        case MUMMY:
+            monster.age = rand() % 3000 + 1000; // Random age between 1000 and 4000
+            monster.power = rand() % 51 + 50; // Random power between 50 and 100
+            monster.speed = ((float)rand() / RAND_MAX) * 5.0; // Random speed between 0 and 5
+            monster.stamina = rand() % 501 + 100; // Random stamina between 100 and 600
+            break;
+        case CHANGELING:
+            monster.age = rand() % 101 + 1; // Random age between 1 and 100
+            monster.power = rand() % 101 + 50; // Random power between 50 and 150
+            monster.speed = ((float)rand() / RAND_MAX) * 10.0; // Random speed between 0 and 10
+            monster.stamina = rand() % 5001 + 1000; // Random stamina between 1000 and 6000
+            break;
+    }
+
+    return monster;
+}
+
+// Function to print monster details
+void print_monster(struct Monster monster) {
+    const char *type_names[] = {
+        "Zombie",
+        "Werewolf",
+        "Vampire",
+        "Mummy",
+        "Changeling"
+    };
+
+    printf("Monster Type: %s\n", type_names[monster.type]);
+    printf("         Age: %d years\n", monster.age);
+    printf("       Power: %d\n", monster.power);
+    printf("       Speed: %.2f\n", monster.speed);
+    printf("     Stamina: %d", monster.stamina);
+    printf("\n");
+}
